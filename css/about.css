@@ -124,12 +124,12 @@ h6 {
 .about .content {
   /* background: var(--accent-color); */
   /* color: var(--contrast-color); */
-  padding: 6rem 0;
+  /* padding: 6rem 0; */
 }
-.about .mttt {
+/* .about .mttt {
   padding: 0.5rem 0;
   padding-bottom: 1.5rem;;
-}
+} */
 
 .about .content .img-overlap {
   box-shadow: 10px 30px 30px #505050;
