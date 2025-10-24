@@ -1,0 +1,39 @@
+.mtt{
+     margin-top: 100px;
+}
+
+./*** Contact ***/
+@media (min-width: 992px) {
+    .contact-info::after {
+        position: absolute;
+        content: "";
+        width: 0px;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        border-left: 1px dashed rgba(255, 255, 255, .2);
+    }
+}
+
+
+@media (max-width: 991.98px) {
+    .contact-info::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 0px;
+        top: 50%;
+        left: 0;
+        border-top: 1px dashed rgba(255, 255, 255, .2);
+    }
+}
+
+
+/*** Appoinment ***/
+.appoinment {
+    background: linear-gradient(#3c2418e8, #3c2418e8), url(../images2/h56.jpg) left center no-repeat;
+    background-size: cover;
+}
+
+
+

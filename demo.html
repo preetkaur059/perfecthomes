@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Video + Logo + Code Overlay — Recorder</title>
+  <style>
+    :root{
+      --bg: #fafafa;
+      --card: #fff;
+      --accent: #16a34a;
+      --muted: #666;
+    }
+    body{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      margin: 0;
+      background: linear-gradient(180deg,#f6f9f6, #eef6ee);
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; padding: 20px;
+    }
+    .container{
+      width: 100%;
+      max-width: 920px;
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      padding: 18px;
+    }
+    h1{ margin: 0 0 12px 0; font-size: 18px; }
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 14px;
+    }
+    /* video area */
+    .video-wrap{
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 9/16; /* tall for reels */
+      min-height: 420px;
+    }
+    /* hide real video element (we use it as source), canvas will show */
+    #sourceVideo{ display:none; }
+
+    /* canvas that shows overlayed preview */
+    #previewCanvas{
+      width:100%;
+      height:100%;
+      display:block;
+      background: #000;
+    }
+
+    /* controls */
+    .controls{
+      padding: 12px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    button{
+      border: none;
+      background: var(--accent);
+      color: white;
+      padding: 10px 12px;
+      border-radius: 8px;
+      cursor:pointer;
+      font-weight:600;
+    }
+    button.secondary{
+      background: #666;
+    }
+    .panel{
+      padding:12px;
+      border-radius:8px;
+      background: linear-gradient(180deg,#fff,#fbfbfb);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+    label{ display:block; font-size:13px; color:var(--muted); margin-bottom:6px; }
+    input[type="text"], input[type="file"], select{
+      width:100%;
+      padding:8px 10px;
+      border-radius:6px;
+      border:1px solid #e6e6e6;
+      margin-bottom:10px;
+      box-sizing:border-box;
+    }
+    .small{ font-size:13px; color:var(--muted); }
+    .logo-preview{ width:72px; height:72px; object-fit:contain; border-radius:6px; border:1px solid #eee; background:#fff; }
+    .note{ font-size:13px; color:#444; margin-top:8px; }
+
+    @media (max-width:880px){
+      .grid{ grid-template-columns: 1fr; }
+      .panel{ order:2; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Video + Logo + Code Overlay — Recorder</h1>
+    <div class="grid">
+      <div>
+        <div class="video-wrap">
+          <!-- source video (hidden) -->
+          <video id="sourceVideo" playsinline crossorigin="anonymous">
+            <!-- Replace src with your downloaded reel path or drag a local file using the uploader below -->
+            <source src="input.mp4" type="video/mp4" />
+            Your browser doesn't support HTML5 video.
+          </video>
+
+          <!-- canvas used for preview & recording -->
+          <canvas id="previewCanvas"></canvas>
+        </div>
+
+        <div class="controls panel" style="margin-top:10px;">
+          <button id="playBtn">Play / Pause</button>
+          <button id="startRec">Start Recording</button>
+          <button id="stopRec" class="secondary" disabled>Stop & Download</button>
+          <span id="status" class="small" style="margin-left:10px;color:#333"></span>
+        </div>
+
+        <div class="note small">Tip: Use Chrome/Edge on desktop for best recording compatibility. If using mobile, results may vary.</div>
+      </div>
+
+      <div class="panel">
+        <label>1) Upload Video (optional)</label>
+        <input id="videoFile" type="file" accept="video/*" />
+
+        <label>2) Upload Logo (PNG recommended)</label>
+        <input id="logoFile" type="file" accept="image/*" />
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+          <img id="logoPreview" class="logo-preview" src="" alt="logo preview" style="display:none" />
+          <div>
+            <label>Logo position</label>
+            <select id="logoPos">
+              <option value="top-left">Top Left</option>
+              <option value="top-right">Top Right</option>
+              <option value="bottom-left">Bottom Left</option>
+              <option value="bottom-right">Bottom Right</option>
+            </select>
+          </div>
+        </div>
+
+        <label>3) Code / Text to show</label>
+        <input id="codeText" type="text" value="Code: 1234" />
+
+        <label>4) Visual Settings</label>
+        <label class="small">Logo scale (%)</label>
+        <input id="logoScale" type="range" min="10" max="40" value="18" />
+
+        <label class="small">Text size (px)</label>
+        <input id="textSize" type="range" min="18" max="48" value="34" />
+
+        <label class="small">Text box opacity</label>
+        <input id="boxOpacity" type="range" min="0" max="100" value="55" />
+
+        <div style="margin-top:8px;">
+          <button id="applyBtn" class="secondary">Apply to Preview</button>
+        </div>
+
+        <hr/>
+
+        <div class="small">
+          When ready: press <strong>Start Recording</strong> to record the canvas with overlays. Then press <strong>Stop & Download</strong>.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Elements
+    const sourceVideo = document.getElementById('sourceVideo');
+    const canvas = document.getElementById('previewCanvas');
+    const playBtn = document.getElementById('playBtn');
+    const startRec = document.getElementById('startRec');
+    const stopRec = document.getElementById('stopRec');
+    const videoFileIn = document.getElementById('videoFile');
+    const logoFileIn = document.getElementById('logoFile');
+    const logoPreview = document.getElementById('logoPreview');
+    const logoPos = document.getElementById('logoPos');
+    const logoScale = document.getElementById('logoScale');
+    const codeTextEl = document.getElementById('codeText');
+    const textSize = document.getElementById('textSize');
+    const boxOpacity = document.getElementById('boxOpacity');
+    const applyBtn = document.getElementById('applyBtn');
+    const status = document.getElementById('status');
+
+    // Canvas context and state
+    const ctx = canvas.getContext('2d');
+    let cw = 720, ch = 1280; // default 9:16
+    let rafId = null;
+    let logoImg = null;
+    let recorder = null;
+    let recordedChunks = [];
+
+    // Initialize sizes
+    function resizeCanvasToVideo() {
+      // use sourceVideo videoWidth/videoHeight if available else default ratio
+      const vw = sourceVideo.videoWidth || 720;
+      const vh = sourceVideo.videoHeight || 1280;
+      // limit width to 1080 to keep reasonable size
+      const maxW = 1080;
+      const scale = Math.min(1, maxW / vw);
+      cw = Math.round(vw * scale);
+      ch = Math.round(vh * scale);
+      canvas.width = cw;
+      canvas.height = ch;
+      canvas.style.aspectRatio = (cw/ch).toString();
+    }
+
+    // draw loop
+    function drawFrame() {
+      // Draw current video frame
+      try {
+        ctx.clearRect(0,0,cw,ch);
+        ctx.drawImage(sourceVideo, 0, 0, cw, ch);
+      } catch(e){
+        // video not ready or cross-origin issue
+      }
+
+      // draw logo if loaded
+      if (logoImg) {
+        const scalePct = Number(logoScale.value) / 100;
+        // compute logo size relative to canvas width
+        const logoW = Math.round(cw * scalePct);
+        const aspect = logoImg.width / logoImg.height;
+        const logoH = Math.round(logoW / aspect);
+        let x = 12, y = 12;
+        const pos = logoPos.value;
+        if (pos.includes('right')) x = cw - logoW - 12;
+        if (pos.includes('bottom')) y = ch - logoH - 12;
+        ctx.drawImage(logoImg, x, y, logoW, logoH);
+      }
+
+      // draw text box (bottom-right default)
+      const txt = codeTextEl.value || '';
+      if (txt.trim().length > 0) {
+        const fontPx = Number(textSize.value);
+        ctx.font = `${fontPx}px Inter, system-ui, Arial`;
+        ctx.textBaseline = 'top';
+        // measure
+        const metrics = ctx.measureText(txt);
+        const tw = Math.ceil(metrics.width);
+        const th = Math.ceil(fontPx * 1.15);
+        // position: bottom-right with margin
+        const margin = 12;
+        const x = cw - tw - 20 - margin;
+        const y = ch - th - 20 - margin;
+        // box
+        const opacity = Number(boxOpacity.value) / 100;
+        ctx.fillStyle = `rgba(0,0,0,${opacity})`;
+        // rounded rect
+        const padX = 12, padY = 8, r = 8;
+        roundRect(ctx, x - padX, y - padY, tw + padX*2, th + padY*2, r, true, false);
+        // text
+        ctx.fillStyle = '#fff';
+        ctx.fillText(txt, x, y);
+      }
+
+      rafId = requestAnimationFrame(drawFrame);
+    }
+
+    // rounded rect helper
+    function roundRect(ctx, x, y, w, h, r, fill, stroke) {
+      if (typeof r === 'undefined') r = 5;
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r);
+      ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r);
+      ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+      if (fill) ctx.fill();
+      if (stroke) ctx.stroke();
+    }
+
+    // Play/pause toggler
+    playBtn.addEventListener('click', () => {
+      if (sourceVideo.paused) {
+        sourceVideo.play();
+        playBtn.textContent = 'Pause';
+      } else {
+        sourceVideo.pause();
+        playBtn.textContent = 'Play';
+      }
+    });
+
+    // When video metadata loaded, resize canvas
+    sourceVideo.addEventListener('loadedmetadata', () => {
+      resizeCanvasToVideo();
+    });
+
+    // File inputs
+    videoFileIn.addEventListener('change', e => {
+      const f = e.target.files[0];
+      if (!f) return;
+      const url = URL.createObjectURL(f);
+      sourceVideo.src = url;
+      sourceVideo.load();
+      sourceVideo.play().catch(()=>{});
+      status.textContent = 'Loaded video from file.';
+    });
+
+    logoFileIn.addEventListener('change', e => {
+      const f = e.target.files[0];
+      if (!f) return;
+      const url = URL.createObjectURL(f);
+      const img = new Image();
+      img.onload = () => {
+        logoImg = img;
+        logoPreview.src = url;
+        logoPreview.style.display = 'block';
+        status.textContent = 'Logo loaded.';
+      };
+      img.onerror = () => {
+        status.textContent = 'Failed to load logo image.';
+      };
+      img.src = url;
+    });
+
+    // apply button: ensure canvas uses current settings
+    applyBtn.addEventListener('click', () => {
+      // restart draw loop to reflect changes immediately
+      if (!rafId) {
+        rafId = requestAnimationFrame(drawFrame);
+      }
+      status.textContent = 'Preview updated.';
+    });
+
+    // Recording logic using MediaRecorder from canvas stream
+    startRec.addEventListener('click', async () => {
+      if (!sourceVideo.src) {
+        alert('Please load a video (use the uploader or ensure input.mp4 exists).');
+        return;
+      }
+      // ensure canvas sized correctly
+      resizeCanvasToVideo();
+
+      // ensure draw loop running
+      if (!rafId) rafId = requestAnimationFrame(drawFrame);
+
+      // Start playing video from beginning for recording (optional)
+      try {
+        sourceVideo.currentTime = 0;
+      } catch(e){}
+
+      // get canvas stream
+      const stream = canvas.captureStream(30); // fps
+      // combine audio: get audio track from video element using captureStream (some browsers support)
+      let audioStream = null;
+      try {
+        // Try to capture audio by creating an AudioContext and routing video element - but simpler approach:
+        // If browser supports captureStream on video with audio, we can get audio via sourceVideo.captureStream()
+        const vs = sourceVideo.captureStream ? sourceVideo.captureStream() : null;
+        if (vs) {
+          // take audio tracks
+          const audioTracks = vs.getAudioTracks();
+          audioTracks.forEach(t => stream.addTrack(t));
+        }
+      } catch(e) {
+        console.warn('Could not capture audio:', e);
+      }
+
+      recordedChunks = [];
+      // create MediaRecorder
+      const mime = MediaRecorder.isTypeSupported('video/webm;codecs=vp9,opus') ? 'video/webm;codecs=vp9,opus' :
+                   MediaRecorder.isTypeSupported('video/webm;codecs=vp8,opus') ? 'video/webm;codecs=vp8,opus' :
+                   'video/webm';
+      try {
+        recorder = new MediaRecorder(stream, { mimeType: mime });
+      } catch (err) {
+        alert('MediaRecorder not supported in this browser with required mime. Try Chrome/Edge on Desktop.');
+        return;
+      }
+
+      recorder.ondataavailable = (ev) => {
+        if (ev.data && ev.data.size) recordedChunks.push(ev.data);
+      };
+      recorder.onstop = () => {
+        const blob = new Blob(recordedChunks, { type: recordedChunks[0]?.type || 'video/webm' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'overlayed_video.webm';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        status.textContent = 'Recording finished. Download started.';
+      };
+
+      recorder.start(200); // timeslice
+      startRec.disabled = true;
+      stopRec.disabled = false;
+      status.textContent = 'Recording...';
+
+      // start playing video (if paused)
+      try { await sourceVideo.play(); } catch(e){}
+
+    });
+
+    stopRec.addEventListener('click', () => {
+      if (recorder && recorder.state === 'recording') {
+        recorder.stop();
+      }
+      startRec.disabled = false;
+      stopRec.disabled = true;
+      // pause video
+      try { sourceVideo.pause(); } catch(e){}
+    });
+
+    // start preview loop automatically (but do not start recording)
+    (function init(){
+      // try to start draw loop so user sees preview when video is ready
+      if (!rafId) rafId = requestAnimationFrame(drawFrame);
+    })();
+
+    // ensure cleanup on page unload
+    window.addEventListener('beforeunload', ()=>{
+      if (recorder && recorder.state === 'recording') recorder.stop();
+      if (rafId) cancelAnimationFrame(rafId);
+    });
+
+  </script>
+</body>
+</html>

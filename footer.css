@@ -1,0 +1,23 @@
+  /* Zoom-in animation for gallery images */
+        .footer .col-4 img {
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            border-radius: 5px;
+        }
+
+        /* Hover effect */
+        .footer .col-4 img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Zoom-in only on hover for .imgg3 images */
+        .pf-img-box .imgg3 {
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            border-radius: 5px;
+        }
+
+        /* Hover effect */
+        .pf-img-box .imgg3:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }

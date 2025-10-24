@@ -1,0 +1,407 @@
+
+/* Fonts */
+/* :root {
+  --default-font: "Open Sans",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Marcellus",  sans-serif;
+  --nav-font: "Marcellus",  sans-serif;
+}  */
+
+:root {
+  --default-font: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --heading-font: "Marcellus", sans-serif;
+  --nav-font: "Marcellus", sans-serif;
+}
+
+:root {
+    --heading-color: #403226;
+    --global-color: #bb9a65;
+    --secondary-color: #403226;
+    --light-color: #f6f6f6;
+    --light-color-2: #f8f8f8;
+    --white-color: #ffffff;
+    --white-color-rgb: 255, 255, 255;
+    --blackish-color: #403226;
+    --blackish-color-rgb: 64, 50, 38;
+    --color-normal: #403226;
+    --color-hover: #bb9a65;
+    --global-color-rgb: 187, 154, 101;
+    --secondary-color-rgb: 64, 50, 38;
+    --responsive-breakpoint: 1200px;
+
+
+}
+
+
+
+:root {
+    --pbmit-global-color: #CE9233;
+    --pbmit-secondary-color: #403226;
+    --pbmit-light-color: #f6f6f6;
+    --pbmit-light-color-2: #f8f8f8;
+    --pbmit-white-color: #ffffff;
+    --pbmit-white-color-rgb: 255, 255, 255;
+    --pbmit-blackish-color: #403226;
+    --pbmit-blackish-color-rgb: 64, 50, 38;
+    --pbmit-link-color-normal: #403226;
+    --pbmit-link-color-hover: #CE9233;
+    --pbmit-global-color-rgb: 187, 154, 101;
+    --pbmit-secondary-color-rgb: 64, 50, 38;
+    --pbmit-responsive-breakpoint: 1200px;
+
+    /* --pbmit-body-typography-font-family: 'Roboto', sans-serif; */
+    --pbmit-body-typography-variant: 300;
+    --pbmit-body-typography-font-size: 16px;
+    --pbmit-body-typography-line-height: 1.6;
+    --pbmit-body-typography-color: #666666;
+
+    /* --pbmit-heading-typography-font-family: "Space Grotesk", sans-serif; */
+    --pbmit-heading-color: #403226;
+    --pbmit-heading-font-variant: 700;
+
+    /* --pbmit-btn-typography-font-family: "Space Grotesk", sans-serif; */
+    --pbmit-btn-typography-variant: 600;
+    --pbmit-btn-typography-font-size: 16px;
+    --pbmit-btn-typography-line-height: 24px;
+}
+
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+/*:root { 
+  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+ /* --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
+  /*--heading-color: #2d465e; /* Color for headings, subheadings and title throughout the website */
+/*  --accent-color: #403226; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+ /* --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  /*--contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+/* } */
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+/* :root { */
+/*  --nav-color: #212529;  /* The default color of the main navmenu links */
+/*  --nav-hover-color: #116530; /* Applied to main navmenu links when they are hovered over or active */
+  /*--nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+/*  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+/*  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
+/*  --nav-dropdown-hover-color: #116530; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+/* } */
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+/* 
+.light-background {
+  --background-color: #f9f9f9;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #060606;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --accent-color: #2ea359;
+  --surface-color: #252525;
+  --contrast-color: #ffffff;
+} */
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}*/
+
+
+.container .brown {
+    color:#403226;
+
+}
+
+
+
+.inbox-padding {
+    /* padding: 3rem; */
+     padding-top: 6rem !important;
+    padding-bottom: 6rem !important; 
+    /* margin-top: 6rem !important; */
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 30px;
+    bottom: 30px;
+    z-index: 99;
+}
+
+.fw-medium {
+    font-weight: 600;
+}
+
+.mt-6 {
+    margin-top: 5rem;
+}
+
+.mb-6 {
+    margin-bottom: 5rem;
+}
+
+.pt-6 {
+    padding-top: 5rem;
+}
+
+.pb-6 {
+    padding-bottom: 5rem;
+}
+
+/*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+/*** Button ***/
+.btn {
+    transition: .5s;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+.btn-primary,
+.btn-outline-primary:hover {
+    color: var( --white-color);
+}
+
+.btn-secondary,
+.btn-outline-secondary:hover {
+    color: var(--heading-color);
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-xl-square {
+    width: 60px;
+    height: 60px;
+}
+
+.btn-xxl-square {
+    width: 75px;
+    height: 75px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square,
+.btn-xl-square,
+.btn-xxl-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+}
+/* topbar */
+.topbar {
+    background-color: #403226;
+}
+.topb1 {
+    /* color: #403226; */
+}
+.topbar{
+    /* background: linear-gradient(30deg, #CE9233, #403226df, #CE9233 ); */
+}
+.topbar2{
+    color:#CE9233 !important;
+}
+.since01 {
+    color: black;
+	text-shadow: -0.5px 0 #CE9233, 0 0.5px #CE9233,  0 0.5px #CE9233, 0 -0.5px #CE9233;
+}
+
+.topbar01{
+/* background-image: linear-gradient(to right, #423226,  #CE9233 ); */
+background: linear-gradient(30deg, #403226df, #CE9233, #403226df );
+
+    /* background-color:   #e6d5c3; */
+    /* background-color: red; */
+    /* width: 93vw; */
+}
+.topbar011{
+/* background-image: linear-gradient(to right, #423226,  #CE9233 ); */
+background: linear-gradient(10deg, #403226df, #CE9233, #403226df );
+}
+
+.topbar-color {
+  background-color: #a98d76 /* brown with 60% opacity */
+}
+
+/* .contact-button {
+    
+} */
+/*** Navbar ***/
+.sticky-top {
+    top: -100px;
+    transition: .5s;
+}
+
+.navbar .navbar-nav .nav-link {
+    margin-right: 35px;
+    padding: 25px 0;
+    color: var(--bs-dark);
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    outline: none;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: var(--bs-primary);
+}
+
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+@media (max-width: 991.98px) {
+    .navbar .navbar-nav .nav-link  {
+        margin-right: 0;
+        padding: 10px 0;
+    }
+
+    .navbar .navbar-nav {
+        margin-top: 15px;
+        border-top: 1px solid #EEEEEE;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        border: none;
+        margin-top: 0;
+        top: 150%;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        top: 100%;
+        visibility: visible;
+        transition: .5s;
+        opacity: 1;
+    }
+}
+
+
+/*** Contact ***/
+@media (min-width: 992px) {
+    .contact-info::after {
+        position: absolute;
+        content: "";
+        width: 0px;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        border-left: 1px dashed rgba(255, 255, 255, .2);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .contact-info::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 0px;
+        top: 50%;
+        left: 0;
+        border-top: 1px dashed rgba(255, 255, 255, .2);
+    }
+}
+
+
+/*** Appoinment ***/
+.newsletter {
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../images2/h10.png) left center no-repeat;
+    background-size: cover;
+}
+
+.bg1 {
+    background-color: #3c2418 !important;
+}
+
+
+/*** Footer ***/
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: white;
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: .3s;
+}
+
+.text {
+   color: white; 
+}
+.icons {
+    color: #866042;
+}
+
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: var(--bs-primary);
+    margin-right: 10px;
+}
+ 
+
+.footer .btn.btn-link:hover {
+    color: var(--bs-primary);
+    letter-spacing: 1px;
+    box-shadow: none;
+}
+
+.copyright {
+    background: #403226;
+}
+
+.copyright a {
+    color: var(--bs-white);
+}
+
+.copyright a:hover {
+    color: var(--bs-primary);
+}
+
+
