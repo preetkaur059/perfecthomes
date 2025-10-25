@@ -444,7 +444,7 @@
 }
 .pbmit-text-design {
     background-color: var(--pbmit-blackish-color);
-    color: var(--pbmit-global-color);
+    /* color: var(--pbmit-global-color); */
     border-radius: 20px;
     padding: 1px 15px 3px;
     font-size: 14px;
@@ -452,6 +452,7 @@
     position: relative;
     margin-right: 10px;
     display: inline-block;
+    letter-spacing: 1px;
 }
 .testimonial-two{
 	padding: 130px 0 80px 0;

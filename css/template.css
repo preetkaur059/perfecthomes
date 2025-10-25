@@ -261,8 +261,11 @@ background: linear-gradient(10deg, #403226df, #CE9233, #403226df );
 } */
 /*** Navbar ***/
 .sticky-top {
-    top: -100px;
-    transition: .5s;
+    position: sticky !important;
+  /* top: 0; */
+  z-index: 1020;
+    /* /* top: -100px; */
+    transition: .5s; 
 }
 
 .navbar .navbar-nav .nav-link {
