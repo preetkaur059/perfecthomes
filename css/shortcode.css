@@ -135,11 +135,14 @@ body {
 	padding: 0 0 0 15px;
 	margin-bottom: 5px;
 	/* color: var(--pbmit-global-color); */
-	color: #CE9233;
+	color: white;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	  /* color: #CE9233;
   text-shadow: 2px 2px 4px #000000; */
 }
+
+
+
 
 /* .pbmit-heading-subheading .pbmit-subtitle:before {
 	content: "";
@@ -160,9 +163,11 @@ body {
 	letter-spacing: 1px;
 	text-transform: none;
 	font-style: normal;
+	color:#ffffff;
+    text-shadow: 2px 2px 4px #000000;
 	/* text-shadow: 0 0 3px #CE9233; */
-	color: black ;
-	text-shadow: -1px 0 #CE9233, 0 1px #CE9233, 1px 0 #CE9233, 0 -1px #CE9233;
+	/* color: white ;
+	text-shadow: -1px 0 #CE9233, 0 1px #CE9233, 1px 0 #CE9233, 0 -1px #CE9233; */
 }
 
 .pbmit-heading-subheading .pbmit-heading-desc {

@@ -311,26 +311,38 @@
       /* margin: 0 !important;
       padding: 0 !important; */
     }
+
     .meet1 {
-       color: black ;
-	text-shadow: -1px 0 #CE9233, 0 1px #CE9233, 1px 0 #CE9233, 0 -1px #CE9233; 
+      color: black;
+      text-shadow: -1px 0 #CE9233, 0 1px #CE9233, 1px 0 #CE9233, 0 -1px #CE9233;
 
     }
+
+    .client {
+      font-family: marcellus, opensans !important;
+      font-weight: normal;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+      color: white;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+
 
     .txt {
       color: white;
       /* text-shadow: 2px 2px 4px #000000;  */
       /* color: black ;
 	text-shadow: -1px 0 #CE9233, 0 1px #CE9233, 1px 0 #CE9233, 0 -1px #CE9233; */
-  /* color: #CE9233; */
-  text-shadow: 0 0 3px black;
-	/* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
+      /* color: #CE9233; */
+      text-shadow: 0 0 3px black;
+      /* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
     }
+
     .txt1 {
       color: black;
-      text-shadow: 0 0 3px white ;
+      text-shadow: 0 0 3px white;
     }
- 
+
 
     .marquee .swiper-wrapper {
       transition-timing-function: linear !important;
@@ -344,6 +356,12 @@
       display: flex;
       align-items: center;
     }
+
+
+    .imgg03:hover {
+      transform: scale(0.95) !important;
+    }
+
 
     /* .pbmit-element-title {
   font-weight: 600;
@@ -383,7 +401,8 @@
       color: black;
       text-shadow: -1px 0 #CE9233, 0 1px #CE9233, 1px 0 #CE9233, 0 -1px #CE9233;
     }
-  .cursor {
+
+    .cursor {
       height: 25px;
       width: 25px;
       background-color: #77572b;
@@ -391,20 +410,48 @@
       border-radius: 50%;
       position: fixed;
     }
+
     .cursor-blur {
       height: 50px;
       width: 50px;
-      /* background-color: #423226; */
-      background-color: #77572b;
+      background-color: #423226;
+      /* background-color: #77572b; */
       border-radius: 50%;
       position: fixed;
-      filter: blur(20px);
-      z-index:99 ;
+      filter: blur(10px);
+      z-index: 99;
     }
-    .cursor, .cursor-blur {
-  pointer-events: none; /* prevent blocking clicks */
-  transform: translate(-50%, -50%); /* center correctly */
+
+    .cursor,
+    .cursor-blur {
+      pointer-events: none;
+      /* prevent blocking clicks */
+      transform: translate(-50%, -50%);
+      /* center correctly */
+    }
+    .aa01 {
+  /* background-image: url("images2/h43.jpg") !important;  */
+  background-size: cover !important;       
+  background-position: center; 
+  background-repeat: no-repeat; 
+  opacity: 0.9 !important;
+  width: 95vw;
+  /* background: rgba(0, 0, 0, 0.5); */
+  /* position: relative; */
+  /* z-index: 1; */
+  /* padding: 80px 0; */
 }
+
+/* #about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7); 
+  z-index: -1; 
+} */
 
   </style>
 
@@ -421,8 +468,8 @@
     <h2 class="hh">PERFECT HOMES</h2>
   </div> -->
 
-  <!-- <div class="cursor"></div> -->
-   <div class="cursor-blur"></div>
+  <div class="cursor"></div>
+  <!-- <div class="cursor-blur"></div> -->
 
   <!-- Topbar Start -->
   <div class="container-fluid topbar text-white d-none d-lg-flex">
@@ -432,10 +479,11 @@
           <img src="logo.png" height="40.5px" width="100px">
         </a>
         <div class="ms-auto d-flex align-items-center">
-          <small class="ms-4"><i class="fa fa-map-marker-alt me-3"></i>Vill. Sarinh, Opp. H.P Petrol Pump Malerkotla
+          <small class="ms-4 take1"><i class="fa fa-map-marker-alt me-3"></i>Vill. Sarinh, Opp. H.P Petrol Pump
+            Malerkotla
             Road, Ludhiana</small>
-          <small class="ms-4"><i class="fa fa-envelope me-3"></i>query.perfect@gmail.com</small>
-          <small class="ms-4"><i class="fa fa-phone-alt me-3"></i>+91: 98140-03522</small>
+          <small class="ms-4 take1"><i class="fa fa-envelope me-3"></i>query.perfect@gmail.com</small>
+          <small class="ms-4 take1"><i class="fa fa-phone-alt me-3"></i>+91: 98140-03522</small>
           <div class="ms-3 d-flex">
             <a class="btn btn-sm-square btn-light text-primary ms-2" href=""><i class="fab fa-facebook-f"></i></a>
             <a class="btn btn-sm-square btn-light text-primary ms-2" href=""><i class="fab fa-twitter"></i></a>
@@ -475,7 +523,7 @@
   </div>
 
   <!-- Navbar End -->
-   
+
   <!-- slider start  -->
   <div class="page-content">
     <div class="containerslide">
@@ -552,18 +600,18 @@
   <!-- <div data-aos="fade-up"> -->
 
   <section id="about" class="about section">
-    <div class="content animtion">
+    <div class="content animtion ">
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <img src="images3/1.png" alt="Image " class="img-fluid img-overlap" data-aos="zoom-out">
+            <img src="images3/1.png" alt="Image " class="img-fluid img-overlap imgg03" data-aos="zoom-out">
           </div>
           <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="100">
             <div data-aos="fade-up">
-              <h3 class="content-subtitle animtion1  opacity-50">since 1986</h3>
+              <h3 class="content-subtitle opacity-50">since 1986</h3>
             </div>
             <div data-aos="fade-up">
-              <h2 class="content-title animtion2  bgg mb-4">
+              <h2 class="content-title bgg mb-4">
                 <strong> We design thoughtful, liveable spaces.</strong>
               </h2>
             </div>
@@ -1209,8 +1257,6 @@
       <div class="ihbox-style-10-bg-area pbmit-bg-color-light-2">
         <div class="pbmit-heading-subheading text-center animation-style2">
           <h4 class="pbmit-subtitle" data-aos="fade-up" data-aos-delay="100">Why Choose Us?</h4>
-
-
           <h2 class="pbmit-title" data-aos="fade-up" data-aos-delay="100">Design without limits, creativity <br>
             guaranteed.</h2>
         </div>
@@ -1330,11 +1376,11 @@
     <!-- Section Title -->
     <div class="container-fluid section-title">
       <div data-aos="fade-up">
-        <p class="topb01">Client feedback</p>
+        <p class="client">CLIENT FEEDBACK</p>
       </div>
       <div data-aos="fade-up">
         <div class="line01"></div>
-        <h2 class="hear">Hear from clients.</h2>
+        <h2 class="take1">Hear from clients.</h2>
       </div>
     </div><!-- End Section Title -->
 
@@ -1732,46 +1778,46 @@
         disableOnInteraction: false,
       },
     });
-    </script>
+  </script>
 
 
-    <script>
+  <script>
 
- var crsr = document.querySelector(".cursor");
-var blur = document.querySelector(".cursor-blur");
+    var crsr = document.querySelector(".cursor");
+    var blur = document.querySelector(".cursor-blur");
 
-document.addEventListener("mousemove", function (dets) {
-  // Smooth motion using gsap
-  gsap.to(crsr, {
-    x: dets.x,
-    y: dets.y,
-    duration: 0.2,  // increase to make more delay
-    ease: "power2.out"
-  });
+    document.addEventListener("mousemove", function (dets) {
+      // Smooth motion using gsap
+      gsap.to(crsr, {
+        x: dets.x,
+        y: dets.y,
+        duration: 0.2,  // increase to make more delay
+        ease: "power2.out"
+      });
 
-  gsap.to(blur, {
-    x: dets.x - 150,
-    y: dets.y - 150,
-    duration: 0.4,  // slightly slower for blur
-    ease: "power2.out"
-  });
-});
+      gsap.to(blur, {
+        x: dets.x - 150,
+        y: dets.y - 150,
+        duration: 0.4,  // slightly slower for blur
+        ease: "power2.out"
+      });
+    });
 
-document.addEventListener("mousemove", function (dets) {
-  gsap.to(crsr, {
-    x: dets.x,
-    y: dets.y,
-    duration: 0.4,
-    ease: "power2.out"
-  });
+    document.addEventListener("mousemove", function (dets) {
+      gsap.to(crsr, {
+        x: dets.x,
+        y: dets.y,
+        duration: 0.4,
+        ease: "power2.out"
+      });
 
-  gsap.to(blur, {
-    x: dets.x,
-    y: dets.y,
-    duration: 0.4,
-    ease: "power2.out"
-  });
-});
+      gsap.to(blur, {
+        x: dets.x,
+        y: dets.y,
+        duration: 0.4,
+        ease: "power2.out"
+      });
+    });
 
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

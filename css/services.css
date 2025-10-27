@@ -6,9 +6,17 @@
   --heading-font: "Marcellus", sans-serif;
   --nav-font: "Marcellus", sans-serif;
 }
+
 .services-2 {
   overflow: visible;
   margin-bottom: 200px;
+}
+
+.meet1 {
+  color: black !important;
+   /* text-shadow: 2px 2px 4px white; */
+  text-shadow: -1px 0 #CE9233, 0 1px #CE9233, 1px 0 #CE9233, 0 -1px #CE9233 !important  ;
+
 }
 
 .services-2 .section-title {
