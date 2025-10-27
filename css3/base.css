@@ -518,7 +518,7 @@ a.link-btn i,
 
 .pbmit-btn-hover-white {
     color: var(--pbmit-white-color);
-    background-color: var(--pbmit-global-color);
+    background-color: #ce9233;
 }
 
 .pbmit-btn-hover-white:hover {
