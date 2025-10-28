@@ -112,7 +112,10 @@
 
 }
 
-
+.meet1 {
+      color: black !important  ;
+	text-shadow: -1px 0 #CE9233, 0 1px #CE9233, 1px 0 #CE9233, 0 -1px #CE9233 !important;
+    }
 
 .inbox-padding {
     /* padding: 3rem; */

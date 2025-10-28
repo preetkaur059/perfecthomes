@@ -1434,7 +1434,8 @@
     font-size: 16px;
     line-height: 16px;
     padding: 18px 13px;
-    border-radius: 50%;
+    margin-top: 1px 1px !important;
+    border-radius: 10%;
     color: var(--pbmit-white-color);
     background-color: var(--pbmit-blackish-color);
     transition: all 0.2s ease-in;
@@ -1820,7 +1821,15 @@ aside.widget.widget-tag-cloud a:hover,
 	background-image: url(../images/bg/service-sidebar-bg.jpg);
 	background-size: cover;
     background-position: center center;
+    
+  transition: transform 0.4s ease; /* smooth animation */
+
 }
+ .widget.pbmit-service-ad:hover {
+      transform: scale(0.95) !important;
+    }
+
+    
 .widget.pbmit-service-ad .textwidget:before,
 .widget.pbmit-service-ad .textwidget:after{
 	content: "";
@@ -1884,7 +1893,7 @@ aside.widget.widget-tag-cloud a:hover,
 /** Blog Classic **/
 .site-content{
 	padding-top: 80px;
-	padding-bottom: 80px;
+	padding-bottom: 0.5px;
 }
 .post.blog-classic{
     margin-bottom: 60px;

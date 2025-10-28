@@ -378,7 +378,8 @@
       text-shadow: 0 0 5px rgba(64, 50, 38, 0.2);
       transition: all 0.4s ease-in-out;
     }
-    .tiny01:hover{
+
+    .tiny01:hover {
       color: #CE9233;
       transition: all 0.4s ease-in-out;
     }
@@ -431,20 +432,21 @@
       transform: translate(-50%, -50%);
       /* center correctly */
     }
-    .aa01 {
-  /* background-image: url("images2/h43.jpg") !important;  */
-  background-size: cover !important;       
-  background-position: center; 
-  background-repeat: no-repeat; 
-  opacity: 0.9 !important;
-  width: 95vw;
-  /* background: rgba(0, 0, 0, 0.5); */
-  /* position: relative; */
-  /* z-index: 1; */
-  /* padding: 80px 0; */
-}
 
-/* #about::before {
+    .aa01 {
+      /* background-image: url("images2/h43.jpg") !important;  */
+      background-size: cover !important;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.9 !important;
+      width: 95vw;
+      /* background: rgba(0, 0, 0, 0.5); */
+      /* position: relative; */
+      /* z-index: 1; */
+      /* padding: 80px 0; */
+    }
+
+    /* #about::before {
   content: "";
   position: absolute;
   top: 0;
@@ -454,6 +456,15 @@
   background: rgba(255, 255, 255, 0.7); 
   z-index: -1; 
 } */
+ a.ms-4 {
+   /* normal color */
+  /* text-decoration: none; */
+  transition: color 0.3s ease;
+}
+
+a.ms-4:hover {
+  color: #CE9233 !important;
+}
 
   </style>
 
@@ -481,19 +492,21 @@
           <img src="logo.png" height="40.5px" width="100px">
         </a>
         <div class="ms-auto d-flex align-items-center">
-          <small class="ms-4 take1"><i class="fa fa-map-marker-alt me-3"></i>Vill. Sarinh, Opp. H.P Petrol Pump
-            Malerkotla
-            Road, Ludhiana</small>
-          <small class="ms-4 take1"><i class="fa fa-envelope me-3"></i>query.perfect@gmail.com</small>
-          <small class="ms-4 take1"><i class="fa fa-phone-alt me-3"></i>+91: 98140-03522</small>
-          <div class="ms-3 d-flex">
-            <a class="btn btn-sm-square btn-light text-primary ms-2" href=""><i class="fab fa-facebook-f"></i></a>
-            <a class="btn btn-sm-square btn-light text-primary ms-2" href=""><i class="fab fa-twitter"></i></a>
-            <a class="btn btn-sm-square btn-light text-primary ms-2" href=""><i class="fab fa-linkedin-in"></i></a>
-          </div>
+          <a href="index.html#footer01" class="ms-4 text-decoration-none text-light">
+            <small><i class="fa fa-map-marker-alt me-3"></i>Vill. Sarinh, Opp. H.P Petrol Pump
+              Malerkotla Road, Ludhiana</small>
+        </div>
+        <small class="ms-4"><i class="fa fa-envelope me-3"></i>query.perfect@gmail.com</small>
+        <small class="ms-4"><i class="fa fa-phone-alt me-3"></i>+91: 98140-03522</small>
+        <div class="ms-3 d-flex">
+           </a>
+          <a class="btn btn-sm-square btn-light text-primary ms-2" href=""><i class="fab fa-facebook-f"></i></a>
+          <a class="btn btn-sm-square btn-light text-primary ms-2" href=""><i class="fab fa-twitter"></i></a>
+          <a class="btn btn-sm-square btn-light text-primary ms-2" href=""><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
     </div>
+  </div>
   </div>
   <!-- Topbar End -->
 
@@ -1159,18 +1172,18 @@
             <img src="images/7.PNG">
             <!-- <img src="images/8.JPG"> -->
             <img src="images3/3.png">
-            
+
             <img src="images/22.JPG">
 
           </div>
           <!-- column 3 -->
           <div class="dream">
             <!-- <img src="images/19.jpg"> -->
-              <img src="images/20.jpg">
+            <img src="images/20.jpg">
             <img src="images/17.PNG">
 
             <!-- <img src="images/13.PNG"> -->
-           
+
             <img src="images/21.jpg">
 
             <!-- <img src="images/19.JPG"> -->
@@ -1500,7 +1513,7 @@
 
 
   <!-- Footer Start -->
-  <div class="container-fluid bg1 footer py-5 wow fadeIn" data-wow-delay="0.1s">
+  <div class="container-fluid bg1 footer y-5 wow fadeIn" data-wow-delay="0.1s" id="footer01">
     <div class="container py-5">
       <div data-aos="fade-up">
         <div class="row g-5">
