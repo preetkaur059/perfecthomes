@@ -61,7 +61,7 @@
     <link href="css/about.css" rel="stylesheet">
     <link href="about1.css" rel="stylesheet">
     <link href="css3/style.css" rel="stylesheet">
-     <link href="footer.css" rel="stylesheet">
+    <link href="footer.css" rel="stylesheet">
 
     <!-- client review css  -->
     <link rel="stylesheet" href="css/shortcode.css">
@@ -228,11 +228,22 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <style>
+        .cursor {
+            height: 25px;
+            width: 25px;
+            background-color: #423226 !important;
+            z-index: 99;
+            border-radius: 50%;
+            position: fixed;
+            box-shadow: 0 0 6px #CE9233;
+        }
+    </style>
 
 </head>
 
 <body>
-
+    <div class="cursor"></div>
 
     <!-- Topbar Start -->
     <div class="container-fluid topbar text-white d-none d-lg-flex wow fadeIn" data-wow-delay="0.1s">
@@ -321,11 +332,23 @@
                 <article class="portfolio-single">
                     <div class="pbmit-entry-content">
                         <div class="pbmit-heading animation-style2">
-                            <h2 class="pbmit-title">Overview</h2>
+                            <h2 class="pbmit-title meet1">Overview</h2>
                         </div>
-                        <p class="pbmit-firstletter">A Perfect Homes takes pride in crafting the quintessential *A-Frame Cottage*, a timeless architectural design that seamlessly blends aesthetic charm with practicality. With its triangular structure and steeply sloped roof, the A-Frame Cottage has long been celebrated for its ability to harmonize with nature. Perfect Homes elevates this classic design by incorporating modern touches, creating a cozy yet stylish living space. The steep roof allows snow and rain to slide off effortlessly, making it an excellent choice for areas with challenging weather conditions. Additionally, large windows are thoughtfully incorporated to let in abundant natural light and offer stunning views of the surroundings, creating a serene and bright atmosphere indoors.
+                        <p class="pbmit-firstletter">A Perfect Homes takes pride in crafting the quintessential *A-Frame
+                            Cottage*, a timeless architectural design that seamlessly blends aesthetic charm with
+                            practicality. With its triangular structure and steeply sloped roof, the A-Frame Cottage has
+                            long been celebrated for its ability to harmonize with nature. Perfect Homes elevates this
+                            classic design by incorporating modern touches, creating a cozy yet stylish living space.
+                            The steep roof allows snow and rain to slide off effortlessly, making it an excellent choice
+                            for areas with challenging weather conditions. Additionally, large windows are thoughtfully
+                            incorporated to let in abundant natural light and offer stunning views of the surroundings,
+                            creating a serene and bright atmosphere indoors.
                         </p>
-                        <p>Perfect Homes ensures that each A-Frame Cottage is built using premium materials, designed to endure extreme weather while retaining its charm for decades. These cottages are not only durable but also highly customizable, allowing homeowners to tailor their dream space to their preferences. Whether you desire a rustic mountain retreat, a contemporary getaway, or a family-friendly home, Perfect Homes delivers a design that caters to your needs.</p>
+                        <p>Perfect Homes ensures that each A-Frame Cottage is built using premium materials, designed to
+                            endure extreme weather while retaining its charm for decades. These cottages are not only
+                            durable but also highly customizable, allowing homeowners to tailor their dream space to
+                            their preferences. Whether you desire a rustic mountain retreat, a contemporary getaway, or
+                            a family-friendly home, Perfect Homes delivers a design that caters to your needs.</p>
                         <!-- <div class="ihbox-style-area">
 								<div class="row g-0">
 									<div class="col-md-6 col-xl-3">
@@ -595,6 +618,22 @@
         integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
         data-cf-beacon='{"rayId":"8f7a1c124c843015","version":"2024.10.5","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"125856bf84ab44059737e93b01aa0fef","b":1}'
         crossorigin="anonymous"></script>
+
+    <script>
+        var crsr = document.querySelector(".cursor")
+        document.addEventListener("mousemove", function (dets) {
+            // Smooth motion using gsap
+            gsap.to(crsr, {
+                x: dets.x,
+                y: dets.y,
+                duration: 0.2,  // increase to make more delay
+                ease: "power2.out"
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+
 </body>
 
 

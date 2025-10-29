@@ -228,12 +228,23 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+        <style>
+            .cursor {
+      height: 25px;
+      width: 25px;
+      background-color: #423226 !important;
+      z-index: 99;
+      border-radius: 50%;
+      position: fixed;
+      box-shadow: 0 0 6px #CE9233;
+    }
+        </style>
 
 </head>
 
 <body>
 
-
+<div class="cursor"></div>
     <!-- Topbar Start -->
     <div class="container-fluid topbar text-white d-none d-lg-flex wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-3">
@@ -321,7 +332,7 @@
                 <article class="portfolio-single">
                     <div class="pbmit-entry-content">
                         <div class="pbmit-heading animation-style2">
-                            <h2 class="pbmit-title">Overview</h2>
+                            <h2 class="pbmit-title meet1">Overview</h2>
                         </div>
                         <p class="pbmit-firstletter">A Portable Office & Cabins by Perfect Homes are an excellent choice for those seeking functional, stylish, and adaptable spaces for their business or personal needs. These cabins are crafted using durable, high-quality materials, ensuring they can withstand varying weather conditions while maintaining a sleek, professional appearance. Designed with versatility in mind, they come equipped with ergonomic interiors, efficient lighting, proper ventilation, and energy-efficient systems, creating a comfortable and productive workspace. Perfect Homes prioritizes flexibility, offering customizable layouts that cater to diverse uses such as remote offices, temporary meeting rooms, or even retail kiosks.
                         </p>
@@ -596,6 +607,20 @@
         integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
         data-cf-beacon='{"rayId":"8f7a1c124c843015","version":"2024.10.5","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"125856bf84ab44059737e93b01aa0fef","b":1}'
         crossorigin="anonymous"></script>
+
+         <script>
+        var crsr = document.querySelector(".cursor")
+        document.addEventListener("mousemove", function (dets) {
+            // Smooth motion using gsap
+            gsap.to(crsr, {
+                x: dets.x,
+                y: dets.y,
+                duration: 0.2,  // increase to make more delay
+                ease: "power2.out"
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </body>
 
 

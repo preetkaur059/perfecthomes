@@ -61,7 +61,7 @@
     <link href="css/about.css" rel="stylesheet">
     <link href="about1.css" rel="stylesheet">
     <link href="css3/style.css" rel="stylesheet">
-     <link href="footer.css" rel="stylesheet">
+    <link href="footer.css" rel="stylesheet">
 
     <!-- client review css  -->
     <link rel="stylesheet" href="css/shortcode.css">
@@ -229,9 +229,23 @@
         href="https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
+    <style>
+        .cursor {
+            height: 25px;
+            width: 25px;
+            background-color: #423226 !important;
+            z-index: 99;
+            border-radius: 50%;
+            position: fixed;
+            box-shadow: 0 0 6px #CE9233;
+        }
+    </style>
+
 </head>
 
 <body>
+
+    <div class="cursor"></div>
 
 
     <!-- Topbar Start -->
@@ -321,11 +335,23 @@
                 <article class="portfolio-single">
                     <div class="pbmit-entry-content">
                         <div class="pbmit-heading animation-style2">
-                            <h2 class="pbmit-title">Overview</h2>
+                            <h2 class="pbmit-title meet1">Overview</h2>
                         </div>
-                        <p class="pbmit-firstletter">A Perfect Homes revolutionizes modern housing with their *Container Homes*, offering a perfect blend of innovation, sustainability, and style. Designed by repurposing shipping containers, these homes provide a creative solution for compact yet comfortable living spaces. The modular design allows for flexible layouts, making them ideal for various purposes, including residential homes, vacation rentals, or even home offices. These homes are expertly engineered to maximize functionality, utilizing every inch of space while ensuring a sleek, modern aesthetic. Large windows and smart ventilation systems create a bright and airy interior, making container homes both practical and inviting.
+                        <p class="pbmit-firstletter">A Perfect Homes revolutionizes modern housing with their *Container
+                            Homes*, offering a perfect blend of innovation, sustainability, and style. Designed by
+                            repurposing shipping containers, these homes provide a creative solution for compact yet
+                            comfortable living spaces. The modular design allows for flexible layouts, making them ideal
+                            for various purposes, including residential homes, vacation rentals, or even home offices.
+                            These homes are expertly engineered to maximize functionality, utilizing every inch of space
+                            while ensuring a sleek, modern aesthetic. Large windows and smart ventilation systems create
+                            a bright and airy interior, making container homes both practical and inviting.
                         </p>
-                        <p>Built with robust steel containers, Perfect Homes’ container homes are designed to withstand harsh weather conditions, providing unmatched durability and longevity. These homes are not only cost-effective but also environmentally friendly, promoting sustainable living by repurposing materials and incorporating energy-efficient features. From single-container layouts to multi-container complexes, Perfect Homes ensures that every design is tailored to suit your specific needs.</p>
+                        <p>Built with robust steel containers, Perfect Homes’ container homes are designed to withstand
+                            harsh weather conditions, providing unmatched durability and longevity. These homes are not
+                            only cost-effective but also environmentally friendly, promoting sustainable living by
+                            repurposing materials and incorporating energy-efficient features. From single-container
+                            layouts to multi-container complexes, Perfect Homes ensures that every design is tailored to
+                            suit your specific needs.</p>
                         <!-- <div class="ihbox-style-area">
 								<div class="row g-0">
 									<div class="col-md-6 col-xl-3">
@@ -595,6 +621,20 @@
         integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
         data-cf-beacon='{"rayId":"8f7a1c124c843015","version":"2024.10.5","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"125856bf84ab44059737e93b01aa0fef","b":1}'
         crossorigin="anonymous"></script>
+
+    <script>
+        var crsr = document.querySelector(".cursor")
+        document.addEventListener("mousemove", function (dets) {
+            // Smooth motion using gsap
+            gsap.to(crsr, {
+                x: dets.x,
+                y: dets.y,
+                duration: 0.2,  // increase to make more delay
+                ease: "power2.out"
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </body>
 
 

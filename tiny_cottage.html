@@ -241,6 +241,16 @@
 
       
        
+            .cursor {
+      height: 25px;
+      width: 25px;
+      background-color: #423226 !important;
+      z-index: 99;
+      border-radius: 50%;
+      position: fixed;
+      box-shadow: 0 0 6px #CE9233;
+    }
+       
 
     </style>
 
@@ -248,7 +258,7 @@
 
 
 <body>
-
+<div class="cursor"></div>
 
     <!-- Topbar Start -->
     <div class="container-fluid topbar text-white d-none d-lg-flex wow fadeIn" data-wow-delay="0.1s">
@@ -414,7 +424,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="pt-5 mbb">
+                        <div class=" mbb">
                             <div class="ihbox-style-15-area">
                                 <div class="pbmit-ihbox-style-15">
                                     <div class="pbmit-ihbox-box d-flex">
@@ -623,6 +633,22 @@
         integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
         data-cf-beacon='{"rayId":"8f7a1c124c843015","version":"2024.10.5","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"125856bf84ab44059737e93b01aa0fef","b":1}'
         crossorigin="anonymous"></script>
+
+
+     <script>
+        var crsr = document.querySelector(".cursor")
+        document.addEventListener("mousemove", function (dets) {
+            // Smooth motion using gsap
+            gsap.to(crsr, {
+                x: dets.x,
+                y: dets.y,
+                duration: 0.2,  // increase to make more delay
+                ease: "power2.out"
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
 </body>
 
 

@@ -317,6 +317,15 @@
       border: 1px solid #CE9233;
       font-weight: 700;
     }
+    .cursor {
+      height: 25px !important;
+      width: 25px !important;
+      background-color: #423226 !important;
+      z-index: 99 !important;
+      border-radius: 50% !important;
+      position: fixed !important;
+      box-shadow: 0 0 6px #CE9233 !important;
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
@@ -324,7 +333,7 @@
 </head>
 
 <body>
-
+  <div class="cursor"></div>
   <!-- Topbar Start -->
   <div class="container-fluid topbar text-white d-none d-lg-flex wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-3">
@@ -333,10 +342,16 @@
           <img src="logo.png" height="40.5px" width="100px">
         </a>
         <div class="ms-auto d-flex align-items-center">
-          <small class="ms-4"><i class="fa fa-map-marker-alt me-3"></i>Vill. Sarinh, Opp. H.P Petrol Pump Malerkotla
-            Road, Ludhiana</small>
-          <small class="ms-4"><i class="fa fa-envelope me-3"></i>query.perfect@gmail.com</small>
-          <small class="ms-4"><i class="fa fa-phone-alt me-3"></i>+91: 98140-03522</small>
+          <a href="index.html#footer01" class="text-decoration-none text-light">
+            <small><i class="fa fa-map-marker-alt me-3"></i>Vill. Sarinh, Opp. H.P Petrol Pump
+              Malerkotla Road, Ludhiana</small></a>
+        </div>
+        <a href="index.html#footer01" class="text-decoration-none text-light">
+        <small class="ms-4"><i class="fa fa-envelope me-3"></i>query.perfect@gmail.com</small>
+        </a>
+        <a href="index.html#footer01" class="text-decoration-none text-light">
+        <small class="ms-4"><i class="fa fa-phone-alt me-3"></i>+91: 98140-03522</small>
+         </a>
           <div class="ms-3 d-flex">
             <a class="btn btn-sm-square btn-light text-primary ms-2" href=""><i class="fab fa-facebook-f"></i></a>
             <a class="btn btn-sm-square btn-light text-primary ms-2" href=""><i class="fab fa-twitter"></i></a>
@@ -689,13 +704,13 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 service-left-col sidebar">
+          <div class="col-lg-3 service-left-col sidebar" data-aos="fade-up">
             <aside class="service-sidebar">
               <div class="pbmit-service-feature-image">
                 <img src="images3/2.png" class="img-fluid imgg03 w-100" alt="">
               </div>
-              <aside class="widget pbmit-service-ad">
-                <div class="textwidget">
+              <aside class="widget pbmit-service-ad" data-aos="fade-up">
+                <div class="textwidget" >
                   <div class="pbmit-service-ads">
                     <h5 class="pbmit-ads-subheding">Reach Us</h5>
                     <h3 class="pbmit-ads-title">Perfect Homes</h3>
@@ -915,6 +930,7 @@
   <script src='js/gsap-animation.js'></script>
   <!-- Scripts JS -->
   <script src="js/scripts.js"></script>
+  <script src="js/template.js"></script>
   <!-- animation js  -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
@@ -981,7 +997,19 @@
       once: true,      // animate only once when scrolled
     });
   </script>
-
+   <script>
+  var crsr = document.querySelector(".cursor")
+    document.addEventListener("mousemove", function (dets) {
+      // Smooth motion using gsap
+      gsap.to(crsr, {
+        x: dets.x,
+        y: dets.y,
+        duration: 0.2,  // increase to make more delay
+        ease: "power2.out"
+      });
+       });
+ </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </body>
 
 </html>

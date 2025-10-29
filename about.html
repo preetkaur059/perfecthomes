@@ -201,6 +201,15 @@
       transform: scale(0.95) !important;
     }
 
+    .cursor {
+      height: 25px;
+      width: 25px;
+      background-color: #423226 !important;
+      z-index: 99;
+      border-radius: 50%;
+      position: fixed;
+      box-shadow: 0 0 6px #CE9233;
+    }
   </style>
 
 </head>
@@ -215,10 +224,16 @@
           <img src="logo.png" height="40.5px" width="100px">
         </a>
         <div class="ms-auto d-flex align-items-center">
-          <small class="ms-4"><i class="fa fa-map-marker-alt me-3"></i>Vill. Sarinh, Opp. H.P Petrol Pump Malerkotla
-            Road, Ludhiana</small>
-          <small class="ms-4"><i class="fa fa-envelope me-3"></i>query.perfect@gmail.com</small>
-          <small class="ms-4"><i class="fa fa-phone-alt me-3"></i>+91: 98140-03522</small>
+          <a href="index.html#footer01" class="text-decoration-none text-light">
+            <small><i class="fa fa-map-marker-alt me-3"></i>Vill. Sarinh, Opp. H.P Petrol Pump
+              Malerkotla Road, Ludhiana</small></a>
+        </div>
+        <a href="index.html#footer01" class="text-decoration-none text-light">
+        <small class="ms-4"><i class="fa fa-envelope me-3"></i>query.perfect@gmail.com</small>
+        </a>
+        <a href="index.html#footer01" class="text-decoration-none text-light">
+        <small class="ms-4"><i class="fa fa-phone-alt me-3"></i>+91: 98140-03522</small>
+         </a>
           <div class="ms-3 d-flex">
             <a class="btn btn-sm-square btn-light text-primary ms-2" href=""><i class="fab fa-facebook-f"></i></a>
             <a class="btn btn-sm-square btn-light text-primary ms-2" href=""><i class="fab fa-twitter"></i></a>
@@ -1022,6 +1037,32 @@
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
     integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
     data-cf-beacon='{"token":"125856bf84ab44059737e93b01aa0fef"}' crossorigin="anonymous"></script>
+   <script>
+  var crsr = document.querySelector(".cursor")
+    document.addEventListener("mousemove", function (dets) {
+      // Smooth motion using gsap
+      gsap.to(crsr, {
+        x: dets.x,
+        y: dets.y,
+        duration: 0.2,  // increase to make more delay
+        ease: "power2.out"
+      });
+       });
+ </script>
+
+<script>
+  var crsr = document.querySelector(".cursor")
+    document.addEventListener("mousemove", function (dets) {
+      // Smooth motion using gsap
+      gsap.to(crsr, {
+        x: dets.x,
+        y: dets.y,
+        duration: 0.2,  // increase to make more delay
+        ease: "power2.out"
+      });
+       });
+ </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 </body>
 

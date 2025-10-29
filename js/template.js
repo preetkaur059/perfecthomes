@@ -87,40 +87,6 @@
 
 
 
-    var crsr = document.querySelector(".cursor");
-    var blur = document.querySelector(".cursor-blur");
-
-    document.addEventListener("mousemove", function (dets) {
-      // Smooth motion using gsap
-      gsap.to(crsr, {
-        x: dets.x,
-        y: dets.y,
-        duration: 0.2,  // increase to make more delay
-        ease: "power2.out"
-      });
-
-      gsap.to(blur, {
-        x: dets.x - 150,
-        y: dets.y - 150,
-        duration: 0.4,  // slightly slower for blur
-        ease: "power2.out"
-      });
-    });
-
-    document.addEventListener("mousemove", function (dets) {
-      gsap.to(crsr, {
-        x: dets.x,
-        y: dets.y,
-        duration: 0.4,
-        ease: "power2.out"
-      });
-
-      gsap.to(blur, {
-        x: dets.x,
-        y: dets.y,
-        duration: 0.4,
-        ease: "power2.out"
-      });
-    });
+    
 
   

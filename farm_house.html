@@ -25,7 +25,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="css3/twentytwenty.css">
-     <link href="footer.css" rel="stylesheet">
+    <link href="footer.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <!-- <link href="lib/animate/animate.min.css" rel="stylesheet">
@@ -229,9 +229,23 @@
         href="https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
+    <style>
+        .cursor {
+            height: 25px;
+            width: 25px;
+            background-color: #423226 !important;
+            z-index: 99;
+            border-radius: 50%;
+            position: fixed;
+            box-shadow: 0 0 6px #CE9233;
+        }
+    </style>
+
 </head>
 
 <body>
+
+    <div class="cursor"></div>
 
 
     <!-- Topbar Start -->
@@ -321,11 +335,25 @@
                 <article class="portfolio-single">
                     <div class="pbmit-entry-content">
                         <div class="pbmit-heading animation-style2">
-                            <h2 class="pbmit-title">Overview</h2>
+                            <h2 class="pbmit-title meet1">Overview</h2>
                         </div>
-                        <p class="pbmit-firstletter">A Perfect Homes introduces their innovative *Prefab Farmhouse*, a modern solution for those seeking a tranquil and stylish retreat in the countryside. Designed to combine the rustic charm of a farmhouse with the efficiency of prefab construction, these homes are perfect for nature lovers and those looking to escape the chaos of city life. Each farmhouse is designed with precision and care, ensuring that it blends seamlessly with its natural surroundings while providing all the modern comforts. With expansive layouts and large windows, prefab farmhouses by Perfect Homes offer a serene living experience, bringing in plenty of natural light and offering panoramic views of the landscape. Whether it’s a weekend getaway or a permanent residence, these homes are tailored to create a peaceful and rejuvenating environment that connects you to nature.
+                        <p class="pbmit-firstletter">A Perfect Homes introduces their innovative *Prefab Farmhouse*, a
+                            modern solution for those seeking a tranquil and stylish retreat in the countryside.
+                            Designed to combine the rustic charm of a farmhouse with the efficiency of prefab
+                            construction, these homes are perfect for nature lovers and those looking to escape the
+                            chaos of city life. Each farmhouse is designed with precision and care, ensuring that it
+                            blends seamlessly with its natural surroundings while providing all the modern comforts.
+                            With expansive layouts and large windows, prefab farmhouses by Perfect Homes offer a serene
+                            living experience, bringing in plenty of natural light and offering panoramic views of the
+                            landscape. Whether it’s a weekend getaway or a permanent residence, these homes are tailored
+                            to create a peaceful and rejuvenating environment that connects you to nature.
                         </p>
-                        <p>Each prefab farmhouse is fully customizable, giving you the freedom to design a home that suits your lifestyle and preferences. From spacious open-concept living areas and cozy bedrooms to modern kitchens and outdoor patios, every aspect of the farmhouse can be tailored to your needs. The modular construction process ensures faster assembly, allowing you to move into your dream farmhouse in a fraction of the time required for traditional construction.</p>
+                        <p>Each prefab farmhouse is fully customizable, giving you the freedom to design a home that
+                            suits your lifestyle and preferences. From spacious open-concept living areas and cozy
+                            bedrooms to modern kitchens and outdoor patios, every aspect of the farmhouse can be
+                            tailored to your needs. The modular construction process ensures faster assembly, allowing
+                            you to move into your dream farmhouse in a fraction of the time required for traditional
+                            construction.</p>
                         <!-- <div class="ihbox-style-area">
 								<div class="row g-0">
 									<div class="col-md-6 col-xl-3">
@@ -595,6 +623,20 @@
         integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
         data-cf-beacon='{"rayId":"8f7a1c124c843015","version":"2024.10.5","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"125856bf84ab44059737e93b01aa0fef","b":1}'
         crossorigin="anonymous"></script>
+
+         <script>
+        var crsr = document.querySelector(".cursor")
+        document.addEventListener("mousemove", function (dets) {
+            // Smooth motion using gsap
+            gsap.to(crsr, {
+                x: dets.x,
+                y: dets.y,
+                duration: 0.2,  // increase to make more delay
+                ease: "power2.out"
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </body>
 
 
