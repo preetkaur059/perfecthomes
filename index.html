@@ -405,41 +405,16 @@
       text-shadow: -1px 0 #CE9233, 0 1px #CE9233, 1px 0 #CE9233, 0 -1px #CE9233;
     }
 
-    .cursor {
-      height: 25px;
-      width: 25px;
-      background-color: #77572b;
-      z-index: 99;
-      border-radius: 50%;
-      position: fixed;
-    }
-
-    .cursor-blur {
-      height: 50px;
-      width: 50px;
-      background-color: #423226;
-      /* background-color: #77572b; */
-      border-radius: 50%;
-      position: fixed;
-      filter: blur(10px);
-      z-index: 99;
-    }
-
-    .cursor,
-    .cursor-blur {
-      pointer-events: none;
-      /* prevent blocking clicks */
-      transform: translate(-50%, -50%);
-      /* center correctly */
-    }
+    
 
     .aa01 {
-      /* background-image: url("images2/h43.jpg") !important;  */
+      /* background-image: url("images3/21.jpg") !important;  */
+      /* background-color: red; */
       background-size: cover !important;
       background-position: center;
       background-repeat: no-repeat;
       opacity: 0.9 !important;
-      width: 95vw;
+      /* width: 95vw; */
       /* background: rgba(0, 0, 0, 0.5); */
       /* position: relative; */
       /* z-index: 1; */
@@ -494,12 +469,16 @@ a.ms-4:hover {
         <div class="ms-auto d-flex align-items-center">
           <a href="index.html#footer01" class="ms-4 text-decoration-none text-light">
             <small><i class="fa fa-map-marker-alt me-3"></i>Vill. Sarinh, Opp. H.P Petrol Pump
-              Malerkotla Road, Ludhiana</small>
+              Malerkotla Road, Ludhiana</small></a>
         </div>
+        <a href="index.html#footer01" class="ms-4 text-decoration-none text-light">
         <small class="ms-4"><i class="fa fa-envelope me-3"></i>query.perfect@gmail.com</small>
+        </a>
+        <a href="index.html#footer01" class="ms-4 text-decoration-none text-light">
         <small class="ms-4"><i class="fa fa-phone-alt me-3"></i>+91: 98140-03522</small>
+         </a>
         <div class="ms-3 d-flex">
-           </a>
+          
           <a class="btn btn-sm-square btn-light text-primary ms-2" href=""><i class="fab fa-facebook-f"></i></a>
           <a class="btn btn-sm-square btn-light text-primary ms-2" href=""><i class="fab fa-twitter"></i></a>
           <a class="btn btn-sm-square btn-light text-primary ms-2" href=""><i class="fab fa-linkedin-in"></i></a>
@@ -614,7 +593,7 @@ a.ms-4:hover {
   <!-- About Section -->
   <!-- <div data-aos="fade-up"> -->
 
-  <section id="about" class="about section">
+  <section id="about" class="about section aa01">
     <div class="content animtion ">
       <div class="container">
         <div class="row">
@@ -702,16 +681,16 @@ a.ms-4:hover {
 
 
   <!-- client review Start -->
-  <div class="container-fluid mb-5">
+  <div class="container-fluid mb-5 ">
     <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url('images2/review2.png'); 
            background-size: cover; 
            background-position: center; 
            position: relative;
            background-repeat: no-repeat;">
-      <div class="container">
+      <div class="container ">
         <div class="row justify-content-center pb-3">
           <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-            <h2 class="mb-4 text-white take">
+            <h2 class="mb-4 text-white steps01 take">
               <div data-aos="fade-up">
                 <i class="fa-solid text-white take fa-square-check"></i> Take the right step, do the big things.
               </div>
@@ -970,7 +949,7 @@ a.ms-4:hover {
   <section class="process-section-two topbar01">
     <div class="container ">
       <div class="position-relative text-center">
-        <div class="pbmit-heading-subheading animation-style3">
+        <div class="pbmit-heading-subheading steps011 animation-style3">
           <div data-aos="fade-up">
             <h4 class="pbmit-subtitle txt">Steps</h4>
             <h2 class="pbmit-title">How organization works</h2>
@@ -1070,7 +1049,7 @@ a.ms-4:hover {
   <!-- Process End -->
 
   <!-- Marquee Start -->
-  <section class="marquee-one">
+  <section class="marquee-one steps01">
     <div class="container-fluid ">
       <div class="swiper-slider marquee pt-4">
         <div class="swiper-wrapper">
@@ -1322,7 +1301,7 @@ a.ms-4:hover {
   <section id="testimonials " class="testimonials topbar011 widh22 section">
 
     <!-- Section Title -->
-    <div class="container-fluid section-title">
+    <div class="container-fluid section-title steps011">
       <div data-aos="fade-up">
         <p class="client">CLIENT FEEDBACK</p>
       </div>
@@ -1729,45 +1708,7 @@ a.ms-4:hover {
   </script>
 
 
-  <script>
-
-    var crsr = document.querySelector(".cursor");
-    var blur = document.querySelector(".cursor-blur");
-
-    document.addEventListener("mousemove", function (dets) {
-      // Smooth motion using gsap
-      gsap.to(crsr, {
-        x: dets.x,
-        y: dets.y,
-        duration: 0.2,  // increase to make more delay
-        ease: "power2.out"
-      });
-
-      gsap.to(blur, {
-        x: dets.x - 150,
-        y: dets.y - 150,
-        duration: 0.4,  // slightly slower for blur
-        ease: "power2.out"
-      });
-    });
-
-    document.addEventListener("mousemove", function (dets) {
-      gsap.to(crsr, {
-        x: dets.x,
-        y: dets.y,
-        duration: 0.4,
-        ease: "power2.out"
-      });
-
-      gsap.to(blur, {
-        x: dets.x,
-        y: dets.y,
-        duration: 0.4,
-        ease: "power2.out"
-      });
-    });
-
-  </script>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 </body>

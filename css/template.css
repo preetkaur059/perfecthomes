@@ -106,7 +106,33 @@
   scroll-behavior: smooth;
 }*/
 
+ .cursor {
+      height: 25px;
+      width: 25px;
+      background-color: #77572b;
+      z-index: 99;
+      border-radius: 50%;
+      position: fixed;
+    }
 
+    .cursor-blur {
+      height: 50px;
+      width: 50px;
+      background-color: #423226;
+      /* background-color: #77572b; */
+      border-radius: 50%;
+      position: fixed;
+      filter: blur(10px);
+      z-index: 99;
+    }
+
+    .cursor,
+    .cursor-blur {
+      pointer-events: none;
+      /* prevent blocking clicks */
+      transform: translate(-50%, -50%);
+      /* center correctly */
+    }
 .container .brown {
     color:#403226;
 
@@ -119,7 +145,7 @@
 
 .inbox-padding {
     /* padding: 3rem; */
-     padding-top: 6rem !important;
+     padding-top: 5rem !important;
     padding-bottom: 6rem !important; 
     /* margin-top: 0.5rem !important; */
     padding-left: 2rem;
