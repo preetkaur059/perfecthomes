@@ -1,6 +1,6 @@
 (function ($) {
   "use strict";
-  console.log("& Developed By Kirpal Singh Lottey")
+  console.log("& Developed By Parampreet Kaur")
 	/*-------------------------------------
 		Animation on scroll: Number rotator
 	-------------------------------------*/
@@ -9,7 +9,7 @@
 		var animation = self.data("appear-animation");
 		var delay     = (self.data("appear-animation-delay") ? self.data("appear-animation-delay") : 0);{ 
 			self.html('0');
-			self.waypoint(function(direction) {
+			self.waypoints(function(direction) {
 				if( !self.hasClass('completed') ){
 					var from     = self.data('from');
 					var to       = self.data('to');

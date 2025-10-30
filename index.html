@@ -93,16 +93,18 @@
   <style>
     /* Full-screen loader overlay */
     #loader {
+      /* margin-top: 100px; */
+      /* padding-top: 50px; */
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 125vh;
       background: #423226;
       display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
+      /* flex-direction: column; */
+      /* justify-content: flex-start; */
+      /* align-items: center; */
       overflow: hidden;
       z-index: 9999;
     }
@@ -386,13 +388,6 @@
 
 
     /* .videodiv{
-      z-index: -999;
-      
-      ;
-     } */
-    .services-2 .swiper-pagination .swiper-pagination-bullet-active {
-      /* background-color: var(--accent-color) !important; */
-    }
 
     .topb01 {
       font-size: 23px !important;
@@ -410,16 +405,16 @@
     .aa01 {
       /* background-image: url("images3/21.jpg") !important;  */
       /* background-color: red; */
-      background-size: cover !important;
+      /* background-size: cover !important;
       background-position: center;
       background-repeat: no-repeat;
-      opacity: 0.9 !important;
+      opacity: 0.9 !important; */
       /* width: 95vw; */
       /* background: rgba(0, 0, 0, 0.5); */
       /* position: relative; */
       /* z-index: 1; */
       /* padding: 80px 0; */
-    }
+    /* } */
 
     /* #about::before {
   content: "";
@@ -431,13 +426,13 @@
   background: rgba(255, 255, 255, 0.7); 
   z-index: -1; 
 } */
- a1 {
+ a {
    /* normal color */
   /* text-decoration: none; */
   transition: color 0.3s ease;
 }
 
-a1:hover {
+a:hover {
   color: #CE9233 !important;
 }
  .cursor {
@@ -455,15 +450,17 @@ a1:hover {
 </head>
 
 <body>
-  <!-- <div id="loader">
-    <div class="bulb-wrapper">
-      <div class="cord"></div>
-      <div class="bulb">
-        <div class="filament"></div>
+  <!-- <video autoplay loop muted playsinline class="background-video">
+        <source src="video/perfect home loader1.mp4" type="video/mp4">
+      </video> -->
+  <div id="loader">
+    
+        <video autoplay loop muted playsinline class="background-video" height="100vh">
+        <source src="video/perfect home loader.mp4" type="video/mp4">
+      </video>
       </div>
-    </div>
-    <h2 class="hh">PERFECT HOMES</h2>
-  </div> -->
+      
+
 
   <div class="cursor"></div>
   
@@ -543,7 +540,7 @@ a1:hover {
             </div>
           </div>
         </div>
-        <div class="item" style="background-image: url(images3/10.png);">
+        <div class="item" style="background-image: url(images3/7.png);">
           <div class="content">
             <div class="name01">DESIGNERS</div>
             <div class="des01"> are creative experts in modern architecture.</div>
@@ -553,8 +550,8 @@ a1:hover {
 
           </div>
         </div>
-        <div class="item" style="background-image: url(images3/7.png);">
-          <div class="content">
+        <div class="item" style="background-image: url(images3/10.png);">
+            <div class="content">
             <div class="name01">DECORATE</div>
             <div class="des01"> spaces that reflect your unique style.</div>
             <a href="contact.html">
@@ -1652,7 +1649,7 @@ a1:hover {
           loader.style.display = 'none';
           document.getElementById('content').style.display = '';
         });
-      }, 5000); // 4 seconds
+      }, 2500); // 4 seconds
     });
   </script>
  
